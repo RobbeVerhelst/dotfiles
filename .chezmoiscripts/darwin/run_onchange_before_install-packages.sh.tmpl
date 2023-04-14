@@ -61,19 +61,22 @@ set -eufo pipefail
      "grc"
      "kubernetes-cli"
      "kubectx"
-     "colima"
      "crane"
      "git-extras"
      "git-filter-repo"
      "minikube"
      "mongosh"
-     "docker"
-     "docker-credential-helper"
-     "docker-compose"
-     "docker-buildx"
      "go"
      "rust"
      "python"
+     "gh"
+     "docker"
+     "docker-compose"
+     "docker-buildx"
+     "docker-credential-helper"
+     "colima"
+     "azure-cli"
+     "awscli"
 -}}
 
 {{ $casks := list
@@ -102,6 +105,7 @@ set -eufo pipefail
      "cron"
      "google-cloud-sdk"
      "arc"
+     "ibm-cloud-cli"
 -}}
 
 
@@ -132,9 +136,13 @@ EOF
 sudo brew services restart sudo-touchid
 
 find .ssh/ -type f -exec chmod 600 {} \;; find .ssh/ -type d -exec chmod 700 {} \;; find .ssh/ -type f -name "*.pub" -exec chmod 644 {} \;
-#compaudit | xargs chmod g-w
-
 
 mkdir -p ~/.docker/cli-plugins
-ln -sfn /opt/homebrew/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+
 ln -sfn /opt/homebrew/opt/docker-buildx/bin/docker-buildx ~/.docker/cli-plugins/docker-buildx
+ln -sfn /opt/homebrew/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+
+gcloud components install gke-gcloud-auth-plugin
+ibmcloud plugin install container-service
+ibmcloud plugin install container-registry
+ibmcloud plugin install observe-service
