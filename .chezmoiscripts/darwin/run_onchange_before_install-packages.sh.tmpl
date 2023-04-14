@@ -59,8 +59,18 @@ set -eufo pipefail
      "librsvg"
      "pixman"
      "grc"
-     "kubectl"
+     "kubernetes-cli"
      "kubectx"
+     "colima"
+     "crane"
+     "git-extras"
+     "git-filter-repo"
+     "minikube"
+     "mongosh"
+     "docker"
+     "docker-credential-helper"
+     "docker-compose"
+     "docker-buildx"
 -}}
 
 {{ $casks := list
@@ -87,6 +97,8 @@ set -eufo pipefail
      "bartender"
      "zoom"
      "cron"
+     "google-cloud-sdk"
+     "arc"
 -}}
 
 
@@ -120,12 +132,16 @@ find .ssh/ -type f -exec chmod 600 {} \;; find .ssh/ -type d -exec chmod 700 {} 
 #compaudit | xargs chmod g-w
 
 
-if [[ -d ~/.config/nvim ]]; then
+{{/* if [[ -d ~/.config/nvim ]]; then
   cd ~/.config/nvim && git pull
 else
   git clone https://github.com/LazyVim/starter ~/.config/nvim
-fi
+fi */}}
 
 {{/* _zsh_nvm_load
 corepack enable
 corepack prepare pnpm@7.30.5 --activate */}}
+
+mkdir -p ~/.docker/cli-plugins
+ln -sfn /opt/homebrew/opt/docker-compose/bin/docker-compose ~/.docker/cli-plugins/docker-compose
+ln -sfn /opt/homebrew/opt/docker-buildx/bin/docker-buildx ~/.docker/cli-plugins/docker-buildx
