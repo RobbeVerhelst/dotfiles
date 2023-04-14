@@ -4,7 +4,7 @@ These dotfiles are a collection of configuration files for various command-line 
 
 They feature:
 
-- an extensive zsh setup
+- an extensive zsh setup with a lot of focus on fzf completions
 - a ton of super tools
 
 ## Installation
