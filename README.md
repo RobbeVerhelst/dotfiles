@@ -1,4 +1,4 @@
-# Roderik's dotfiles
+![Roderik's dotfiles](header.png)
 
 These dotfiles are a collection of configuration files for various command-line tools and applications. They can be installed and managed using the `chezmoi` tool, which is a command-line utility for managing dotfiles across multiple machines.
 
