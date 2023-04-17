@@ -1,4 +1,4 @@
-command_timeout = 10000
+command_timeout = 50000
 
 format = """
 $username\
