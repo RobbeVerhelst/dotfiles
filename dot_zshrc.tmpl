@@ -146,4 +146,6 @@ export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 path=(~/bin $path)
 path=(~/.local/bin $path)
 
+export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock"
+
 {{- /* vim: set filetype=zsh: */}}
