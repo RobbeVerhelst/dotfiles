@@ -1,8 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
-  name = Roderik van der Veer
-  email = roderik@settlemint.com
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA0+bsCoH2OJejgy1f89x6ngW7/sqYWqM949diNIo449
+  name = {{ .name }}
+  email = {{ .email }}
+  signingkey = {{ .ssh_signingkey }}
 [gpg]
   format = ssh
 [gpg "ssh"]

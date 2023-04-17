@@ -3,6 +3,7 @@
 {{- $github_user := "roderik" -}}
 {{- $computer_name := default "momus" (env "CM_computer_name") -}}
 {{- $hostname := default "momus" (env "CM_hostname") -}}
+{{- $ssh_signingkey := "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA0+bsCoH2OJejgy1f89x6ngW7/sqYWqM949diNIo449" -}}
 
 {{- if (env "ASK") }}
 {{-   $computer_name = promptString "Computer Name" $computer_name -}}
@@ -10,6 +11,7 @@
 {{-   $name = promptString "Full Name" $name -}}
 {{-   $email = promptString "Email" $email -}}
 {{-   $github_user = promptString "GitHub Username" $github_user -}}
+{{-   $ssh_signingkey := promptString "SSH Signingkey for GIT" $ssh_signingkey -}}
 {{- end }}
 
 data:
@@ -18,3 +20,4 @@ data:
   github_user: {{ $github_user | quote }}
   computer_name: {{ $computer_name | quote }}
   hostname: {{ $hostname | quote }}
+  ssh_signingkey: {{ $ssh_signingkey | quote }}
